@@ -8,13 +8,13 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 const ProductCard = ({ product }: { product: Product }) => {
   return (
     <div className="group">
-      <div className="aspect-square bg-gray-100 rounded-lg relative overflow-hidden">
-        <div className="relative w-full h-full flex items-center justify-center">
+      <div className="relative aspect-square overflow-hidden rounded-lg bg-gray-100">
+        <div className="relative flex h-full w-full items-center justify-center">
           <Image
             src={product.image}
             alt={product.title}
             fill
-            className="object-contain p-4 mix-blend-multiply"
+            className="scale-110 object-contain p-4 mix-blend-multiply duration-200 hover:scale-100"
             sizes="25vw"
           />
         </div>
@@ -73,7 +73,7 @@ const ProductsSection = ({
   return (
     <section className="py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center mb-8">
+        <div className="mb-8 flex items-center justify-between">
           <div>
             <h2 className="text-3xl font-bold">Products</h2>
             <p className="text-gray-600">
@@ -83,7 +83,7 @@ const ProductsSection = ({
           <Button variant="outline">View all</Button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {allProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

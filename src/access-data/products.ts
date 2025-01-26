@@ -47,7 +47,7 @@ export const getProducts = async ({
 export const getProduct = async (id: number) => {
   const products = await apiGetProducts();
   const found = products.find(
-    (product: { id: number }) => id === product["id"]
+    (product: { id: number }) => id === product["id"],
   );
   return found;
 };
